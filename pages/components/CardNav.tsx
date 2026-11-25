@@ -32,6 +32,7 @@ export interface CardNavItem {
 export interface CardNavCta {
   label: string;
   href?: string;
+  className?: string;
   onClick?: (event: ReactMouseEvent<HTMLElement>) => void;
 }
 
@@ -492,7 +493,7 @@ const CardNav = ({
     anchor(
       target,
       {
-        className: wide ? CTA_WIDE : CTA,
+        className: [wide ? CTA_WIDE : CTA, target.className].filter(Boolean).join(' '),
         tabIndex: wide && !open ? -1 : undefined,
         onClick: event => {
           target.onClick?.(event);
