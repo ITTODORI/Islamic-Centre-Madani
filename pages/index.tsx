@@ -4,7 +4,7 @@ import AnimatedContent from './components/AnimatedContent';
 import CardNav from './components/CardNav';
 import ScrollExpand from './components/ScrollExpand';
 import SpecularButton from './components/SpecularButton';
-import ScrollStack, {ScrollStackItem} from './components/ScrollStack';
+import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
 
 const FEATURE_CARDS = [
   {
@@ -44,7 +44,14 @@ export default function Home() {
         />
       </Head>
 
-      <div className="min-h-screen bg-[#FFFFFF] text-[#134377] selection:bg-[#F7C616] selection:text-[#134377]">
+      <div className="relative min-h-screen overflow-hidden bg-[#FFFFFF] text-[#134377] selection:bg-[#F7C616] selection:text-[#134377]">
+        <img
+          src="/src/%D9%85.svg"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-3 bottom-0 z-0 h-64 w-64 object-contain opacity-75 sm:h-80 sm:w-80 md:h-[26rem] md:w-[26rem]"
+        />
+
         <header className="sticky top-0 z-50 px-6 pt-4">
           <CardNav
             theme="light"
@@ -62,7 +69,7 @@ export default function Home() {
           />
         </header>
 
-        <main className="px-6 py-16">
+        <main className="relative z-10 px-6 py-16">
           <div className="mx-auto flex max-w-5xl flex-col items-center">
             <AnimatedContent
               trigger="mount"
@@ -109,7 +116,7 @@ export default function Home() {
                 return (
                   <div
                     key={index}
-                    className="rounded-2xl border border-slate-200 bg-slate-50/70 p-7 shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:border-[#134377]/40 hover:bg-[#FFFFFF] hover:shadow-md"
+                    className="rounded-2xl border border-slate-200 bg-white/90 p-7 shadow-xs backdrop-blur-xs transition-all duration-200 hover:-translate-y-0.5 hover:border-[#134377]/40 hover:bg-[#FFFFFF] hover:shadow-md"
                   >
                     <div
                       className={`mb-6 flex h-11 w-11 items-center justify-center rounded-xl border ${item.badgeClass}`}
