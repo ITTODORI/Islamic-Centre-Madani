@@ -2,6 +2,8 @@ import Head from 'next/head';
 import { BookOpen, HeartHandshake, Sparkles } from 'lucide-react';
 import AnimatedContent from './components/AnimatedContent';
 import CardNav from './components/CardNav';
+import ScrollExpand from './components/ScrollExpand';
+
 
 const FEATURE_CARDS = [
   {
