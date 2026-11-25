@@ -52,8 +52,9 @@ export default function Home() {
             cta={{
               label: 'Donate it',
               href: '#program',
-              className:
-                '!bg-[#134377] hover:!bg-[#F7C616] active:!bg-[#F7C616] hover:!filter-none active:!filter-none',
+              bgColor: '#134377',
+              hoverBgColor: '#F7C616',
+              activeBgColor: '#F7C616',
             }}
           />
         </header>
@@ -70,21 +71,19 @@ export default function Home() {
               stagger={0.12}
               className="flex max-w-3xl flex-col items-center text-center"
             >
-              <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-[#0F5C33]/20 bg-[#0F5C33]/5 px-4 py-1.5 text-sm font-semibold text-[#0F5C33]">
-                <span dir="rtl" className="font-bold text-[#0F5C33]">
-                  مؤسسة المركز الإسلامي المدني
-                </span>
-                <span className="text-[#134377]/50">•</span>
-                <span className="rounded bg-[#F7C616] px-2 py-0.5 text-xs font-bold text-[#134377]">
-                  Sejak 2006 • Transformasi 2026
-                </span>
-              </div>
 
-              <h1 className="mt-4 text-4xl font-bold tracking-tight text-[#134377] sm:text-5xl">
-                Yayasan Islamic Centre Madani
+              <h1
+                title="Yayasan Islamic Centre Madani"
+                className="mt-4 flex items-center justify-center"
+              >
+                <img
+                  src="/src/Islamic%20Centre%20Madani.png"
+                  alt="Yayasan Islamic Centre Madani"
+                  className="h-24 w-auto object-contain sm:h-32"
+                />
               </h1>
 
-              <div className="mt-3 h-1 w-20 rounded-full bg-[#F7C616]" />
+              {/* <div className="mt-3 h-1 w-20 rounded-full bg-[#F7C616]" /> */}
 
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-700 sm:text-lg">
                 Merupakan yayasan yang bergerak di bidang sosial, dakwah, dan pendidikan Islam.
