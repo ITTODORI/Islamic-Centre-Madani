@@ -49,8 +49,9 @@ export default function Home() {
             logo="/src/Islamic%20Centre%20Madani.png"
             logoAlt="Logo Yayasan Islamic Centre Madani"
             logoHref="/"
+            accentColor="#F7C616"
             cta={{
-              label: 'Get Started',
+              label: 'Donate it',
               href: '#program',
             }}
           />
