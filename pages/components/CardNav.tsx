@@ -32,6 +32,9 @@ export interface CardNavItem {
 export interface CardNavCta {
   label: string;
   href?: string;
+  bgColor?: string;
+  hoverBgColor?: string;
+  activeBgColor?: string;
   className?: string;
   onClick?: (event: ReactMouseEvent<HTMLElement>) => void;
 }
@@ -66,8 +69,13 @@ export interface CardNavProps {
 
 interface AnchorProps {
   className: string;
+  style?: CSSProperties;
   'aria-label'?: string;
   tabIndex?: number;
+  onPointerEnter?: () => void;
+  onPointerLeave?: () => void;
+  onPointerDown?: () => void;
+  onPointerUp?: () => void;
   onClick?: (event: ReactMouseEvent<HTMLElement>) => void;
 }
 
@@ -133,9 +141,9 @@ const WORD_CLOSE =
 const LOGO =
   'inline-flex h-[var(--cn-logo)] items-center justify-self-center text-[var(--cn-text)] no-underline outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--cn-ring)] [&_img]:block [&_img]:h-full [&_img]:w-auto [&_svg]:block [&_svg]:h-full [&_svg]:w-auto group-data-[narrow]/cn:col-[1] group-data-[narrow]/cn:row-[1] group-data-[narrow]/cn:justify-self-start group-data-[narrow]/cn:pl-[14px]';
 const CTA =
-  'inline-flex h-[calc(var(--cn-bar)_-_var(--cn-inset)*2)] justify-self-end cursor-pointer items-center justify-center whitespace-nowrap rounded-[calc(var(--cn-radius)_-_var(--cn-inset))] border-0 px-[16px] [background:var(--cn-cta)] [box-shadow:var(--cn-cta-shadow)] [font-family:inherit] [font-size:inherit] font-semibold text-[var(--cn-cta-ink)] no-underline outline-none transition-[filter] duration-200 ease-[ease] hover:[filter:var(--cn-cta-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--cn-ring)]';
+  'inline-flex h-[calc(var(--cn-bar)_-_var(--cn-inset)*2)] justify-self-end cursor-pointer items-center justify-center whitespace-nowrap rounded-[calc(var(--cn-radius)_-_var(--cn-inset))] border-0 px-[16px] [background:var(--cn-cta)] [box-shadow:var(--cn-cta-shadow)] [font-family:inherit] [font-size:inherit] font-semibold text-[var(--cn-cta-ink)] no-underline outline-none transition-[filter,background-color] duration-200 ease-[ease] hover:[filter:var(--cn-cta-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--cn-ring)]';
 const CTA_WIDE =
-  'flex h-[44px] w-full cursor-pointer items-center justify-center whitespace-nowrap rounded-[calc(var(--cn-radius)_-_var(--cn-inset))] border-0 px-[16px] [background:var(--cn-cta)] [box-shadow:var(--cn-cta-shadow)] [font-family:inherit] [font-size:inherit] font-semibold text-[var(--cn-cta-ink)] no-underline outline-none transition-[filter] duration-200 ease-[ease] hover:[filter:var(--cn-cta-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--cn-ring)]';
+  'flex h-[44px] w-full cursor-pointer items-center justify-center whitespace-nowrap rounded-[calc(var(--cn-radius)_-_var(--cn-inset))] border-0 px-[16px] [background:var(--cn-cta)] [box-shadow:var(--cn-cta-shadow)] [font-family:inherit] [font-size:inherit] font-semibold text-[var(--cn-cta-ink)] no-underline outline-none transition-[filter,background-color] duration-200 ease-[ease] hover:[filter:var(--cn-cta-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--cn-ring)]';
 const CONTENT =
   'invisible absolute inset-x-0 top-[var(--cn-bar)] box-border flex flex-col gap-[var(--cn-gap)] px-[var(--cn-inset)] pb-[var(--cn-inset)] [perspective:900px] group-data-[shown]/cn:visible';
 const CARDS = 'flex gap-[var(--cn-gap)] group-data-[narrow]/cn:flex-col';
@@ -251,6 +259,8 @@ const CardNav = ({
   const [openState, setOpenState] = useState(defaultOpen);
   const [narrow, setNarrow] = useState(false);
   const [shown, setShown] = useState(defaultOpen);
+  const [ctaHovered, setCtaHovered] = useState(false);
+  const [ctaActive, setCtaActive] = useState(false);
 
   const controlled = openProp !== undefined;
   const hasCta = Boolean(cta);
@@ -489,12 +499,31 @@ const CardNav = ({
     );
   };
 
-  const ctaButton = (target: CardNavCta, wide: boolean) =>
-    anchor(
+  const ctaButton = (target: CardNavCta, wide: boolean) => {
+    const activeBg = ctaActive ? target.activeBgColor ?? target.hoverBgColor : undefined;
+    const hoverBg = ctaHovered ? target.hoverBgColor : undefined;
+    const customBg = activeBg ?? hoverBg ?? target.bgColor;
+
+    const ctaStyle: CSSProperties | undefined = customBg
+      ? {
+          background: customBg,
+          ...(ctaHovered || ctaActive ? { filter: 'none' } : {}),
+        }
+      : undefined;
+
+    return anchor(
       target,
       {
         className: [wide ? CTA_WIDE : CTA, target.className].filter(Boolean).join(' '),
+        style: ctaStyle,
         tabIndex: wide && !open ? -1 : undefined,
+        onPointerEnter: () => setCtaHovered(true),
+        onPointerLeave: () => {
+          setCtaHovered(false);
+          setCtaActive(false);
+        },
+        onPointerDown: () => setCtaActive(true),
+        onPointerUp: () => setCtaActive(false),
         onClick: event => {
           target.onClick?.(event);
           if (wide) setOpen(false);
@@ -502,6 +531,7 @@ const CardNav = ({
       },
       target.label
     );
+  };
 
   return (
     <div
