@@ -43,7 +43,17 @@ export default function Home() {
 
       <div className="min-h-screen bg-[#FFFFFF] text-[#134377] selection:bg-[#F7C616] selection:text-[#134377]">
         <header className="sticky top-0 z-50 px-6 pt-4">
-          <CardNav theme="light" surface="glass" />
+          <CardNav
+            theme="light"
+            surface="glass"
+            logo="/src/Islamic%20Centre%20Madani.png"
+            logoAlt="Logo Yayasan Islamic Centre Madani"
+            logoHref="/"
+            cta={{
+              label: 'Get Started',
+              href: '#program',
+            }}
+          />
         </header>
 
         <main className="px-6 py-16">
@@ -82,6 +92,7 @@ export default function Home() {
             </AnimatedContent>
 
             <AnimatedContent
+              id="program"
               trigger="mount"
               distance={40}
               duration={0.8}
