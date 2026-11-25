@@ -71,7 +71,6 @@ export default function Home() {
               stagger={0.12}
               className="flex max-w-3xl flex-col items-center text-center"
             >
-
               <h1
                 title="Yayasan Islamic Centre Madani"
                 className="mt-4 flex items-center justify-center"
@@ -82,8 +81,6 @@ export default function Home() {
                   className="h-24 w-auto object-contain sm:h-32"
                 />
               </h1>
-
-              {/* <div className="mt-3 h-1 w-20 rounded-full bg-[#F7C616]" /> */}
 
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-700 sm:text-lg">
                 Merupakan yayasan yang bergerak di bidang sosial, dakwah, dan pendidikan Islam.
