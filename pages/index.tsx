@@ -3,7 +3,8 @@ import { BookOpen, HeartHandshake, Sparkles } from 'lucide-react';
 import AnimatedContent from './components/AnimatedContent';
 import CardNav from './components/CardNav';
 import ScrollExpand from './components/ScrollExpand';
-
+import SpecularButton from './components/SpecularButton';
+import ScrollStack, {ScrollStackItem} from './components/ScrollStack';
 
 const FEATURE_CARDS = [
   {
