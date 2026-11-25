@@ -49,10 +49,11 @@ export default function Home() {
             logo="/src/Islamic%20Centre%20Madani.png"
             logoAlt="Logo Yayasan Islamic Centre Madani"
             logoHref="/"
-            accentColor="#F7C616"
             cta={{
               label: 'Donate it',
               href: '#program',
+              className:
+                '!bg-[#134377] hover:!bg-[#F7C616] active:!bg-[#F7C616] hover:!filter-none active:!filter-none',
             }}
           />
         </header>
