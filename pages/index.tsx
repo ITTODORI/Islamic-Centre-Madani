@@ -33,6 +33,33 @@ const FEATURE_CARDS = [
   },
 ];
 
+const STACK_ITEMS = [
+  {
+    year: '2006',
+    title: 'Awal Berkhidmat — Yayasan Yatama Grobogan',
+    description:
+      'Memulai langkah pengabdian dalam penyantunan, pengasuhan, serta pendampingan anak-anak yatim, piatu, dan dhuafa di Grobogan dan sekitarnya.',
+    cardClass: 'border-slate-200 bg-white/95 text-[#134377]',
+    badgeClass: 'bg-[#134377]/10 text-[#134377]',
+  },
+  {
+    year: 'Pendidikan & Pembinaan',
+    title: 'Penguatan Karakter & Pendidikan Islam',
+    description:
+      'Menghadirkan pembinaan akhlak, pendidikan keislaman, dan pendampingan berkelanjutan agar anak asuh tumbuh menjadi pribadi mandiri dan bermanfaat.',
+    cardClass: 'border-[#0F5C33]/20 bg-[#0F5C33]/[0.04] text-[#134377]',
+    badgeClass: 'bg-[#0F5C33]/15 text-[#0F5C33]',
+  },
+  {
+    year: '2026',
+    title: 'Transformasi Yayasan Islamic Centre Madani',
+    description:
+      'Melakukan transformasi kelembagaan menjadi Yayasan Islamic Centre Madani (مؤسسة المركز الإسلامي المدني) untuk memperluas ruang gerak sosial, dakwah, dan pendidikan Islam.',
+    cardClass: 'border-[#F7C616]/60 bg-[#F7C616]/10 text-[#134377]',
+    badgeClass: 'bg-[#F7C616] text-[#134377]',
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -136,6 +163,44 @@ export default function Home() {
               })}
             </AnimatedContent>
 
+            {/* Section Scroll Stack */}
+            <section
+              aria-labelledby="scroll-stack-heading"
+              className="mt-20 w-full max-w-3xl"
+            >
+              <div className="mb-6 text-center">
+                <span className="inline-block rounded-full bg-[#134377]/10 px-3.5 py-1 text-xs font-semibold tracking-wide text-[#134377]">
+                  Jejak Perjalanan
+                </span>
+                <h2
+                  id="scroll-stack-heading"
+                  className="mt-3 text-2xl font-bold text-[#134377] sm:text-3xl"
+                >
+                  Dari Yatama Grobogan Menuju Madani
+                </h2>
+              </div>
+
+              <div className="w-full" style={{ height: 600 }}>
+                <ScrollStack>
+                  {STACK_ITEMS.map((card, idx) => (
+                    <ScrollStackItem key={idx} className={card.cardClass}>
+                      <span
+                        className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${card.badgeClass}`}
+                      >
+                        {card.year}
+                      </span>
+                      <h3 className="mt-3 text-xl font-bold text-[#134377]">
+                        {card.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-700 sm:text-base">
+                        {card.description}
+                      </p>
+                    </ScrollStackItem>
+                  ))}
+                </ScrollStack>
+              </div>
+            </section>
+
             <AnimatedContent
               trigger="mount"
               distance={40}
@@ -145,7 +210,7 @@ export default function Home() {
               animateOpacity
               stagger={0.12}
               delay={0.25}
-              className="mt-12 w-full max-w-2xl border-t border-slate-200 pt-6 text-center"
+              className="mt-16 w-full max-w-2xl border-t border-slate-200 pt-6 text-center"
             >
               <p className="text-sm leading-relaxed text-slate-600 sm:text-base">
                 Berawal dari kepedulian terhadap penyantunan, pengasuhan, dan pendampingan
