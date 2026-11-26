@@ -33,19 +33,19 @@ const FEATURE_CARDS = [
 
 const STACK_ITEMS = [
   {
-    src: '/Brand%20Guideline/Logo%20Profile.png',
+    src: '/src/Brand Guideline/Logo Profile.png',
     alt: 'Logo Profile Yayasan Islamic Centre Madani',
   },
   {
-    src: '/Brand%20Guideline/Primary%20Logo.png',
+    src: '/src/Brand Guideline/Primary Logo.png',
     alt: 'Primary Logo Yayasan Islamic Centre Madani',
   },
   {
-    src: '/Brand%20Guideline/Secondary%20Logo.png',
+    src: '/src/Brand Guideline/Secondary Logo.png',
     alt: 'Secondary Logo Yayasan Islamic Centre Madani',
   },
   {
-    src: '/Brand%20Guideline/Concept%20Logo.png',
+    src: '/src/Brand Guideline/Concept Logo.png',
     alt: 'Concept Logo Yayasan Islamic Centre Madani',
   },
 ];
@@ -88,6 +88,8 @@ export default function Home() {
               bgColor: '#134377',
               hoverBgColor: '#F7C616',
               activeBgColor: '#F7C616',
+              textColor: '#FFFFFF',
+              hoverTextColor: '#134377',
             }}
           />
         </header>
@@ -173,7 +175,7 @@ export default function Home() {
             </AnimatedContent>
           </section>
 
-          {/* SECTION SCROLL STACK FULL IMAGE */}
+          {/* SECTION SCROLL STACK */}
           <section
             id="jejak-perjalanan"
             aria-labelledby="scroll-stack-heading"
@@ -203,11 +205,14 @@ export default function Home() {
             <div className="w-full">
               <ScrollStack useWindowScroll>
                 {STACK_ITEMS.map((item, idx) => (
-                  <ScrollStackItem key={idx}>
+                  <ScrollStackItem
+                    key={idx}
+                    itemClassName="!p-0 !h-auto overflow-hidden bg-transparent"
+                  >
                     <img
                       src={item.src}
                       alt={item.alt}
-                      className="h-full w-full rounded-3xl object-cover"
+                      className="block h-full w-full object-cover"
                     />
                   </ScrollStackItem>
                 ))}
