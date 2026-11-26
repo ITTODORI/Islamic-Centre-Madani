@@ -1,9 +1,7 @@
 import Head from 'next/head';
-import { BookOpen, HeartHandshake, Sparkles } from 'lucide-react';
+import { ArrowDown, BookOpen, HeartHandshake, Sparkles } from 'lucide-react';
 import AnimatedContent from './components/AnimatedContent';
 import CardNav from './components/CardNav';
-import ScrollExpand from './components/ScrollExpand';
-import SpecularButton from './components/SpecularButton';
 import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
 
 const FEATURE_CARDS = [
@@ -35,28 +33,20 @@ const FEATURE_CARDS = [
 
 const STACK_ITEMS = [
   {
-    year: '2006',
-    title: 'Awal Berkhidmat — Yayasan Yatama Grobogan',
-    description:
-      'Memulai langkah pengabdian dalam penyantunan, pengasuhan, serta pendampingan anak-anak yatim, piatu, dan dhuafa di Grobogan dan sekitarnya.',
-    cardClass: 'border-slate-200 bg-white/95 text-[#134377]',
-    badgeClass: 'bg-[#134377]/10 text-[#134377]',
+    src: '/Brand%20Guideline/Logo%20Profile.png',
+    alt: 'Logo Profile Yayasan Islamic Centre Madani',
   },
   {
-    year: 'Pendidikan & Pembinaan',
-    title: 'Penguatan Karakter & Pendidikan Islam',
-    description:
-      'Menghadirkan pembinaan akhlak, pendidikan keislaman, dan pendampingan berkelanjutan agar anak asuh tumbuh menjadi pribadi mandiri dan bermanfaat.',
-    cardClass: 'border-[#0F5C33]/20 bg-[#0F5C33]/[0.04] text-[#134377]',
-    badgeClass: 'bg-[#0F5C33]/15 text-[#0F5C33]',
+    src: '/Brand%20Guideline/Primary%20Logo.png',
+    alt: 'Primary Logo Yayasan Islamic Centre Madani',
   },
   {
-    year: '2026',
-    title: 'Transformasi Yayasan Islamic Centre Madani',
-    description:
-      'Melakukan transformasi kelembagaan menjadi Yayasan Islamic Centre Madani (مؤسسة المركز الإسلامي المدني) untuk memperluas ruang gerak sosial, dakwah, dan pendidikan Islam.',
-    cardClass: 'border-[#F7C616]/60 bg-[#F7C616]/10 text-[#134377]',
-    badgeClass: 'bg-[#F7C616] text-[#134377]',
+    src: '/Brand%20Guideline/Secondary%20Logo.png',
+    alt: 'Secondary Logo Yayasan Islamic Centre Madani',
+  },
+  {
+    src: '/Brand%20Guideline/Concept%20Logo.png',
+    alt: 'Concept Logo Yayasan Islamic Centre Madani',
   },
 ];
 
@@ -71,14 +61,20 @@ export default function Home() {
         />
       </Head>
 
-      <div className="relative min-h-screen overflow-hidden bg-[#FFFFFF] text-[#134377] selection:bg-[#F7C616] selection:text-[#134377]">
-        <img
-          src="/src/%D9%85.svg"
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-3 bottom-0 z-0 h-64 w-64 object-contain opacity-75 sm:h-80 sm:w-80 md:h-[26rem] md:w-[26rem]"
-        />
+      <div className="relative min-h-screen bg-[#FFFFFF] text-[#134377] selection:bg-[#F7C616] selection:text-[#134377]">
+        {/* Ornamen BG */}
+        <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+          <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-[#134377]/[0.03] blur-3xl" />
+          <div className="absolute right-0 top-1/3 h-[28rem] w-[28rem] rounded-full bg-[#F7C616]/[0.06] blur-3xl" />
+          <img
+            src="/src/%D9%85.svg"
+            alt=""
+            aria-hidden="true"
+            className="absolute -right-6 bottom-0 h-64 w-64 object-contain opacity-60 sm:h-80 sm:w-80 md:h-[26rem] md:w-[26rem]"
+          />
+        </div>
 
+        {/* Navbar */}
         <header className="sticky top-0 z-50 px-6 pt-4">
           <CardNav
             theme="light"
@@ -96,26 +92,31 @@ export default function Home() {
           />
         </header>
 
-        <main className="relative z-10 px-6 py-16">
-          <div className="mx-auto flex max-w-5xl flex-col items-center">
+        <main className="relative z-10">
+          {/* SECTION HOME */}
+          <section className="mx-auto flex max-w-5xl flex-col items-center px-6 pt-12 pb-20">
             <AnimatedContent
               trigger="mount"
               distance={40}
-              duration={0.8}
+              duration={0.85}
               ease="power3.out"
               initialOpacity={0}
               animateOpacity
               stagger={0.12}
               className="flex max-w-3xl flex-col items-center text-center"
             >
+              <span className="inline-flex items-center rounded-full border border-[#134377]/15 bg-[#134377]/[0.04] px-4 py-1 text-xs font-semibold tracking-wider text-[#134377]">
+                مؤسسة المركز الإسلامي المدني
+              </span>
+
               <h1
                 title="Yayasan Islamic Centre Madani"
-                className="mt-4 flex items-center justify-center"
+                className="mt-5 flex items-center justify-center"
               >
                 <img
                   src="/src/Islamic%20Centre%20Madani.png"
                   alt="Yayasan Islamic Centre Madani"
-                  className="h-24 w-auto object-contain sm:h-32"
+                  className="h-24 w-auto object-contain sm:h-32 md:h-36"
                 />
               </h1>
 
@@ -124,13 +125,21 @@ export default function Home() {
                 Perjalanan yayasan ini berawal dari Yayasan Yatama Grobogan yang telah berkhidmat
                 dalam pelayanan sosial sejak tahun 2006.
               </p>
+
+              <a
+                href="#jejak-perjalanan"
+                className="group mt-7 inline-flex items-center gap-2 rounded-full border border-[#134377]/20 bg-white px-5 py-2.5 text-sm font-semibold text-[#134377] shadow-xs transition-all duration-300 hover:border-[#134377] hover:bg-[#134377] hover:text-white"
+              >
+                Jejak Perjalanan
+                <ArrowDown className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+              </a>
             </AnimatedContent>
 
             <AnimatedContent
               id="program"
               trigger="mount"
               distance={40}
-              duration={0.8}
+              duration={0.85}
               ease="power3.out"
               initialOpacity={0}
               animateOpacity
@@ -143,7 +152,7 @@ export default function Home() {
                 return (
                   <div
                     key={index}
-                    className="rounded-2xl border border-slate-200 bg-white/90 p-7 shadow-xs backdrop-blur-xs transition-all duration-200 hover:-translate-y-0.5 hover:border-[#134377]/40 hover:bg-[#FFFFFF] hover:shadow-md"
+                    className="rounded-2xl border border-slate-200 bg-white/95 p-7 shadow-xs backdrop-blur-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#134377]/40 hover:bg-[#FFFFFF] hover:shadow-md"
                   >
                     <div
                       className={`mb-6 flex h-11 w-11 items-center justify-center rounded-xl border ${item.badgeClass}`}
@@ -162,57 +171,25 @@ export default function Home() {
                 );
               })}
             </AnimatedContent>
+          </section>
 
-            {/* Section Scroll Stack */}
-            <section
-              aria-labelledby="scroll-stack-heading"
-              className="mt-20 w-full max-w-3xl"
-            >
-              <div className="mb-6 text-center">
-                <span className="inline-block rounded-full bg-[#134377]/10 px-3.5 py-1 text-xs font-semibold tracking-wide text-[#134377]">
-                  Jejak Perjalanan
-                </span>
-                <h2
-                  id="scroll-stack-heading"
-                  className="mt-3 text-2xl font-bold text-[#134377] sm:text-3xl"
-                >
-                  Dari Yatama Grobogan Menuju Madani
-                </h2>
-              </div>
-
-              <div className="w-full" style={{ height: 600 }}>
-                <ScrollStack>
-                  {STACK_ITEMS.map((card, idx) => (
-                    <ScrollStackItem key={idx} className={card.cardClass}>
-                      <span
-                        className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${card.badgeClass}`}
-                      >
-                        {card.year}
-                      </span>
-                      <h3 className="mt-3 text-xl font-bold text-[#134377]">
-                        {card.title}
-                      </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-700 sm:text-base">
-                        {card.description}
-                      </p>
-                    </ScrollStackItem>
-                  ))}
-                </ScrollStack>
-              </div>
-            </section>
-
-            <AnimatedContent
-              trigger="mount"
-              distance={40}
-              duration={0.8}
-              ease="power3.out"
-              initialOpacity={0}
-              animateOpacity
-              stagger={0.12}
-              delay={0.25}
-              className="mt-16 w-full max-w-2xl border-t border-slate-200 pt-6 text-center"
-            >
-              <p className="text-sm leading-relaxed text-slate-600 sm:text-base">
+          {/* SECTION SCROLL STACK FULL IMAGE */}
+          <section
+            id="jejak-perjalanan"
+            aria-labelledby="scroll-stack-heading"
+            className="mx-auto w-full max-w-4xl px-6 pt-12 pb-28"
+          >
+            <div className="mb-10 text-center">
+              <span className="inline-block rounded-full bg-[#134377]/10 px-4 py-1 text-xs font-semibold tracking-wide text-[#134377]">
+                Jejak Perjalanan
+              </span>
+              <h2
+                id="scroll-stack-heading"
+                className="mt-3 text-2xl font-bold text-[#134377] sm:text-4xl"
+              >
+                Dari Yatama Grobogan Menuju Madani
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-600 sm:text-base">
                 Berawal dari kepedulian terhadap penyantunan, pengasuhan, dan pendampingan
                 anak-anak yatim, piatu, dan dhuafa di wilayah Grobogan dan sekitarnya, pada tahun
                 2026 dilakukan transformasi kelembagaan menjadi{' '}
@@ -221,8 +198,22 @@ export default function Home() {
                 </span>{' '}
                 sebagai langkah perluasan bidang pengabdian kepada masyarakat.
               </p>
-            </AnimatedContent>
-          </div>
+            </div>
+
+            <div className="w-full">
+              <ScrollStack useWindowScroll>
+                {STACK_ITEMS.map((item, idx) => (
+                  <ScrollStackItem key={idx}>
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="h-full w-full rounded-3xl object-cover"
+                    />
+                  </ScrollStackItem>
+                ))}
+              </ScrollStack>
+            </div>
+          </section>
         </main>
       </div>
     </>
