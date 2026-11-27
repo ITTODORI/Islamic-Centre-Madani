@@ -73,8 +73,16 @@ const STACK_ITEMS = [
     alt: 'Pattern',
   },
   {
-    src: '/src/Brand Guideline/',
+    src: '/src/Brand Guideline/Mockup.png',
     alt: 'Mockup',
+  },
+  {
+    src: '/src/Brand Guideline/Mockup.png',
+    alt: 'Mockup',
+  },
+  {
+    src: '/src/Brand Guideline/Mockup 1.png',
+    alt: 'Mockup 1',
   },
 ];
 
