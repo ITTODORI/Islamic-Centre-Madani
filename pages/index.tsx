@@ -249,11 +249,12 @@ export default function Home() {
             <div className="w-full">
               <ScrollStack
                 useWindowScroll
-                visibleStackCount={5}
-                itemDistance={90}
-                itemStackDistance={20}
-                baseScale={0.86}
+                stackPosition="20%"
+                itemDistance={110}
+                itemStackDistance={14}
+                baseScale={0.82}
                 itemScale={0.035}
+                dimAmount={0.22}
               >
                 {STACK_ITEMS.map((item, idx) => (
                   <ScrollStackItem
