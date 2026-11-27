@@ -53,7 +53,7 @@ const STACK_ITEMS = [
     alt: 'Clear Space',
   },
   {
-    src: '/src/Brand Guideline/Logo Type.png',
+    src: '/src/Brand Guideline/Logotype.png',
     alt: 'Logo Type',
   },
   {
@@ -69,7 +69,7 @@ const STACK_ITEMS = [
     alt: 'Visual Graphic',
   },
   {
-    src: '/src/Brand Guideline/Pattern.png',
+    src: '/src/Brand Guideline/Patterns.png',
     alt: 'Pattern',
   },
   {
@@ -77,19 +77,15 @@ const STACK_ITEMS = [
     alt: 'Mockup',
   },
   {
-    src: '/src/Brand Guideline/Mockup.png',
-    alt: 'Mockup',
-  },
-  {
-    src: '/src/Brand Guideline/Mockup 1.png',
+    src: '/src/Brand Guideline/Mockup-1.png',
     alt: 'Mockup 1',
   },
   {
-    src: '/src/Brand Guideline/Mockup 2.png',
+    src: '/src/Brand Guideline/Mockup-2.png',
     alt: 'Mockup 2',
   },
   {
-    src: '/src/Brand Guideline/Mockup 1.png',
+    src: '/src/Brand Guideline/Mockup-3.png',
     alt: 'Mockup 3',
   },
   {
