@@ -247,11 +247,18 @@ export default function Home() {
             </div>
 
             <div className="w-full">
-              <ScrollStack useWindowScroll>
+              <ScrollStack
+                useWindowScroll
+                visibleStackCount={5}
+                itemDistance={90}
+                itemStackDistance={20}
+                baseScale={0.86}
+                itemScale={0.035}
+              >
                 {STACK_ITEMS.map((item, idx) => (
                   <ScrollStackItem
                     key={idx}
-                    itemClassName="!p-0 !h-auto overflow-hidden bg-transparent"
+                    itemClassName="!p-0 h-72 sm:h-80 overflow-hidden bg-white"
                   >
                     <img
                       src={item.src}
