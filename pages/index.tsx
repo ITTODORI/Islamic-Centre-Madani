@@ -69,7 +69,7 @@ const STACK_ITEMS = [
     alt: 'Visual Graphic',
   },
   {
-    src: '/src/Brand Guideline/',
+    src: '/src/Brand Guideline/Pattern.png',
     alt: 'Pattern',
   },
   {
