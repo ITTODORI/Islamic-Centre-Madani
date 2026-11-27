@@ -84,6 +84,18 @@ const STACK_ITEMS = [
     src: '/src/Brand Guideline/Mockup 1.png',
     alt: 'Mockup 1',
   },
+  {
+    src: '/src/Brand Guideline/Mockup 2.png',
+    alt: 'Mockup 2',
+  },
+  {
+    src: '/src/Brand Guideline/Mockup 1.png',
+    alt: 'Mockup 3',
+  },
+  {
+    src: '/src/Brand Guideline/Mockup 1.png',
+    alt: 'Mockup 4',
+  },
 ];
 
 export default function Home() {
