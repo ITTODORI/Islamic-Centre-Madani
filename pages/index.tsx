@@ -34,19 +34,47 @@ const FEATURE_CARDS = [
 const STACK_ITEMS = [
   {
     src: '/src/Brand Guideline/Logo Profile.png',
-    alt: 'Logo Profile Yayasan Islamic Centre Madani',
+    alt: 'Logo Profile',
   },
   {
     src: '/src/Brand Guideline/Primary Logo.png',
-    alt: 'Primary Logo Yayasan Islamic Centre Madani',
+    alt: 'Primary Logo',
   },
   {
     src: '/src/Brand Guideline/Secondary Logo.png',
-    alt: 'Secondary Logo Yayasan Islamic Centre Madani',
+    alt: 'Secondary Logo',
   },
   {
     src: '/src/Brand Guideline/Concept Logo.png',
-    alt: 'Concept Logo Yayasan Islamic Centre Madani',
+    alt: 'Concept Logo',
+  },
+  {
+    src: '/src/Brand Guideline/Clear Space.png',
+    alt: 'Clear Space',
+  },
+  {
+    src: '/src/Brand Guideline/Logo Type.png',
+    alt: 'Logo Type',
+  },
+  {
+    src: '/src/Brand Guideline/Our Color.png',
+    alt: 'Our Color',
+  },
+  {
+    src: '/src/Brand Guideline/Typography.png',
+    alt: 'Typography',
+  },
+  {
+    src: '/src/Brand Guideline/',
+    alt: 'Visual Graphic',
+  },
+  {
+    src: '/src/Brand Guideline/',
+    alt: 'Pattern',
+  },
+  {
+    src: '/src/Brand Guideline/',
+    alt: 'Mockup',
   },
 ];
 
