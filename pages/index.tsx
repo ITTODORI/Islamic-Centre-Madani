@@ -89,7 +89,7 @@ const STACK_ITEMS = [
     alt: 'Mockup 3',
   },
   {
-    src: '/src/Brand Guideline/Mockup 1.png',
+    src: '/src/Brand Guideline/Mockup-4.png',
     alt: 'Mockup 4',
   },
 ];
